@@ -16,7 +16,7 @@ const UserItem = (props) => {
       <td>{props.user.rate}/5</td>
       <td>
         {/*  onClick={props.handleDelete.bind(this, props.index)} */}
-        <button onClick={() => props.handleDelete(props.index)} key={props.index} type="button" className="btn btn-danger btn-sm">
+        <button onClick={() => props.handleDelete(props.user._id)} key={props.user._id} type="button" className="btn btn-danger btn-sm">
           Delete
         </button>
       </td>

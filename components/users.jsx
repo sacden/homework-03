@@ -5,7 +5,7 @@ import UserItem from "./userItem";
 const Users = () => {
   const [users, setUsers] = useState(api.users.fetchAll());
   const handleDelete = (userId) => {
-    setUsers(users.filter((item, index) => index !== userId));
+    setUsers(users.filter((item, index) => item._id != userId));
     // users.length === 1 && document.querySelector(".table").remove();
     // [...document.querySelectorAll("#user tr")].map((x, index) => Number(index) === Number(userId) && x.remove());
   };
