@@ -6,7 +6,7 @@ const Users = () => {
   const [users, setUsers] = useState(api.users.fetchAll());
   const handleDelete = (userId) => {
     setUsers(users.filter((item, index) => index !== userId));
-    users.length === 1 && document.querySelector(".table").remove();
+    // users.length === 1 && document.querySelector(".table").remove();
     // [...document.querySelectorAll("#user tr")].map((x, index) => Number(index) === Number(userId) && x.remove());
   };
   const renderPhrase = (number) => {
@@ -25,23 +25,27 @@ const Users = () => {
             {users.length} {renderPhrase(users.length)} с тобой сегодня{" "}
           </strong>
         </button>
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">Имя</th>
-              <th scope="col">Качества</th>
-              <th scope="col">Профессия</th>
-              <th scope="col">Количество встреч</th>
-              <th scope="col">Оценка</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="user">
-            {users.map((user, index) => (
-              <UserItem user={user} index={index} key={index} handleDelete={handleDelete} />
-            ))}
-          </tbody>
-        </table>
+        {users.length >= 1 ? (
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">Имя</th>
+                <th scope="col">Качества</th>
+                <th scope="col">Профессия</th>
+                <th scope="col">Количество встреч</th>
+                <th scope="col">Оценка</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="user">
+              {users.map((user, index) => (
+                <UserItem user={user} index={index} key={index} handleDelete={handleDelete} />
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
