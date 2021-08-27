@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserItem = (props) => {
+const User = (props) => {
   return (
     <tr key={props.index}>
       <td>{props.user.name}</td>
@@ -24,4 +24,4 @@ const UserItem = (props) => {
   );
 };
 
-export default UserItem;
+export default User;

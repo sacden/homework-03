@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import api from "../api";
-import UserItem from "./userItem";
+import User from "./user";
 
 const Users = () => {
   const [users, setUsers] = useState(api.users.fetchAll());
   const handleDelete = (userId) => {
     setUsers(users.filter((item, index) => item._id != userId));
-    // users.length === 1 && document.querySelector(".table").remove();
-    // [...document.querySelectorAll("#user tr")].map((x, index) => Number(index) === Number(userId) && x.remove());
   };
   const renderPhrase = (number) => {
     return number > 1 && number < 5 ? "человека тусанут" : "человек тусанет";
@@ -39,7 +37,7 @@ const Users = () => {
             </thead>
             <tbody id="user">
               {users.map((user, index) => (
-                <UserItem user={user} index={index} key={index} handleDelete={handleDelete} />
+                <User user={user} index={index} key={index} handleDelete={handleDelete} />
               ))}
             </tbody>
           </table>
