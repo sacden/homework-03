@@ -6,7 +6,7 @@ import api from "./api";
 const App = () => {
   const [users, setUsers] = useState(api.users.fetchAll());
   const handleDelete = (userId) => {
-    setUsers(users.filter((item, index) => item._id != userId));
+    setUsers(users.filter((item, index) => item._id !== userId));
   };
   const renderPhrase = (number) => {
     return number > 1 && number < 5 ? "человека тусанут" : "человек тусанет";
