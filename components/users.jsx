@@ -2,11 +2,11 @@ import React from "react";
 
 import User from "./user";
 
-const Users = ({ handleDelete, users, renderPhrase, changeColorButton }) => {
+const Users = ({ handleDelete, users }) => {
   return (
     <>
       {users.map((user) => (
-        <User user={user} key={user._id} handleDelete={handleDelete} renderPhrase={renderPhrase} changeColorButton={changeColorButton} />
+        <User user={user} key={user._id} handleDelete={handleDelete} {...user} />
       ))}
     </>
   );

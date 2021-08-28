@@ -5,8 +5,6 @@ import BookMark from "./bookmark";
 const User = (props) => {
   const [status, setStatus] = useState({ active: false });
   const getStatus = (status) => {
-    // const findUser = user.map((el) => console.log(el._id));
-
     const newStatus = status.active === false ? { active: true } : { active: false };
     setStatus(newStatus);
   };
@@ -15,7 +13,7 @@ const User = (props) => {
       <td>{props.user.name}</td>
       <td>
         {props.user.qualities.map((el) => (
-          <Qualitie color={el.color} name={el.name} key={el._id} />
+          <Qualitie {...el} key={el._id} />
         ))}
       </td>
       <td>{props.user.profession.name}</td>
