@@ -16,31 +16,10 @@ const App = () => {
     return number > 0 ? "primary" : "danger";
   };
   return (
-    <>
-      <div className="container-sm">
-        <SearchStatus length={users.length} changeColorButton={changeColorButton} renderPhrase={renderPhrase} />
-        {users.length >= 1 ? (
-          <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Имя</th>
-                <th scope="col">Качества</th>
-                <th scope="col">Профессия</th>
-                <th scope="col">Количество встреч</th>
-                <th scope="col">Оценка</th>
-                <th scope="col">Избранное</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="user">
-              <Users users={users} handleDelete={handleDelete} renderPhrase={renderPhrase} changeColorButton={changeColorButton} />
-            </tbody>
-          </table>
-        ) : (
-          ""
-        )}
-      </div>
-    </>
+    <div className="container-sm">
+      <SearchStatus length={users.length} changeColorButton={changeColorButton} renderPhrase={renderPhrase} />
+      <Users users={users} handleDelete={handleDelete} renderPhrase={renderPhrase} changeColorButton={changeColorButton} />
+    </div>
   );
 };
 

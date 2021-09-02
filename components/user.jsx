@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Qualitie from "./qualitie";
 import BookMark from "./bookmark";
 
-const User = (props) => {
+const User = ({ user, handleDelete }) => {
   const [status, setStatus] = useState({ active: false });
   const getStatus = (status) => {
     const newStatus = status.active === false ? { active: true } : { active: false };
@@ -10,20 +10,20 @@ const User = (props) => {
   };
   return (
     <tr>
-      <td>{props.user.name}</td>
+      <td>{user.name}</td>
       <td>
-        {props.user.qualities.map((el) => (
+        {user.qualities.map((el) => (
           <Qualitie {...el} key={el._id} />
         ))}
       </td>
-      <td>{props.user.profession.name}</td>
-      <td>{props.user.completedMeetings}</td>
-      <td>{props.user.rate}/5</td>
+      <td>{user.profession.name}</td>
+      <td>{user.completedMeetings}</td>
+      <td>{user.rate}/5</td>
       <td>
-        <BookMark status={status} getStatus={getStatus} user={props.user} />
+        <BookMark status={status} getStatus={getStatus} user={user} />
       </td>
       <td>
-        <button onClick={() => props.handleDelete(props.user._id)} key={props.user._id} type="button" className="btn btn-danger btn-sm">
+        <button onClick={() => handleDelete(user._id)} key={user._id} type="button" className="btn btn-danger btn-sm">
           Delete
         </button>
       </td>
