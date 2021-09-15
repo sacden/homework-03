@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import SearchStatus from "./components/searchStatus";
 import Users from "./components/users";
 import api from "./api";
 
@@ -9,18 +8,17 @@ const App = () => {
         setUsers(users.filter((item, index) => item._id !== userId));
     };
     const renderPhrase = (number) => {
-        return number > 1 && number < 5 ? "человека тусанут" : "человек тусанет";
+        if (number > 1 && number < 5) {
+            return "человека тусанут";
+        } else {
+            return "человек тусанет";
+        }
     };
     const changeColorButton = (number) => {
         return number > 0 ? "primary" : "danger";
     };
     return (
         <div className="container-sm">
-            <SearchStatus
-                length={users.length}
-                changeColorButton={changeColorButton}
-                renderPhrase={renderPhrase}
-            />
             <Users
                 users={users}
                 handleDelete={handleDelete}

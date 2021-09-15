@@ -14,8 +14,8 @@ const SearchStatus = ({ length, changeColorButton, renderPhrase }) => {
 };
 SearchStatus.propTypes = {
     length: PropTypes.number.isRequired,
-    changeColorButton: PropTypes.func.isRequired,
-    renderPhrase: PropTypes.func.isRequired
+    changeColorButton: PropTypes.func,
+    renderPhrase: PropTypes.func
 };
 
 export default SearchStatus;
