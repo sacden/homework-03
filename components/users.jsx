@@ -43,13 +43,7 @@ const Users = ({
         setSelectedProf();
     };
     return (
-        <div className="d-flex flex-column">
-            <SearchStatus
-                length={count}
-                changeColorButton={changeColorButton}
-                renderPhrase={renderPhrase}
-            />
-
+        <div className="d-flex">
             {professions && (
                 <div className="d-flex flex-column flex-shrink-0 p-3">
                     <GroupList
@@ -68,6 +62,12 @@ const Users = ({
 
             {allUsers.length >= 1 ? (
                 <div className="d-flex flex-column">
+                    <SearchStatus
+                        length={count}
+                        changeColorButton={changeColorButton}
+                        renderPhrase={renderPhrase}
+                    />
+
                     <table className="table">
                         <thead>
                             <tr>
